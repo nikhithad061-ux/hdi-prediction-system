@@ -43,6 +43,12 @@ https://hdi-prediction-system-2-n3sq.onrender.com
 
 ---
 
+## 🎥 Demo Video
+Click here to watch the demo:
+https://your-google-drive-link
+
+---
+
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the Repository
