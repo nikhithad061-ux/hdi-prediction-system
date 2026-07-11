@@ -57,16 +57,16 @@ https://drive.google.com/file/d/1qEtkRctW7DCYiVszr0xzZBZ5eo3iS_ep/view?usp=shari
 git clone 
 https://github.com/nikhithad061-ux/hdi-prediction-system.git
 
-2. Navigate to Source Code Folder
+### 2. Navigate to Source Code Folder
 cd "7. Project Documentation/source-code"
 
-3. Install Dependencies
+### 3. Install Dependencies
 pip install -r requirements.txt
 
-4. Run the Application
+### 4. Run the Application
 python app.py
 
-5. Open in Browser
+### 5. Open in Browser
 http://127.0.0.1:5000/
 
 ---
