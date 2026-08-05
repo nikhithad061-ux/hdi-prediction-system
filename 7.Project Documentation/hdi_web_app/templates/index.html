@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Development Index (HDI) Predictor</title>
+    <!-- Link to the custom sleek CSS theme -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="app-grid">
+            
+            <!-- Left Info Panel (Context & Key Dimensions of HDI) -->
+            <div class="info-panel">
+                <div class="brand-section">
+                    <div class="brand-icon">
+                        <!-- Globe SVG -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <span class="brand-name">HDI Predictor</span>
+                </div>
+
+                <div>
+                    <h1 class="hero-title">Predict Human Development Index</h1>
+                    <p class="hero-description">
+                        The Human Development Index (HDI) is a summary measure of average achievement in key dimensions of human development: a long and healthy life, being knowledgeable, and have a decent standard of living.
+                    </p>
+                </div>
+
+                <div class="features-list">
+                    <!-- Feature 1: Health -->
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <!-- Heart SVG -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="feature-title">Long & Healthy Life</h3>
+                            <p class="feature-desc">Estimated through Life Expectancy at Birth (minimum 20, maximum 85 years).</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2: Knowledge -->
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <!-- Book SVG -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="feature-title">Education & Knowledge</h3>
+                            <p class="feature-desc">Aggregated by combining Expected Years of Schooling and Mean Years of Schooling.</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3: Standard of Living -->
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <!-- Dollar SVG -->
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="feature-title">Decent Standard of Living</h3>
+                            <p class="feature-desc">Represented by Gross National Income (GNI) per capita adjusted for PPP purchasing power.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-credit">
+                    <span>Powering Insights & Development Analytics</span>
+                </div>
+            </div>
+
+            <!-- Right Interactive Form / Dashboard Panel -->
+            <div class="form-panel">
+                <div class="form-header">
+                    <h2 class="form-title">Calculate Prediction</h2>
+                    <p class="form-subtitle">Provide country or regional statistical indicators to generate a prediction.</p>
+                </div>
+
+                <form action="/predict" method="post">
+                    <div class="input-grid">
+                        
+                        <!-- Input 1: Life Expectancy -->
+                        <div class="input-container">
+                            <div class="input-label-row">
+                                <label for="life" class="input-label">Life Expectancy</label>
+                                <span class="input-range-info">(range: 20 – 85 years)</span>
+                            </div>
+                            <div class="input-wrapper">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                    </svg>
+                                </span>
+                                <input type="number" id="life" name="life" step="any" placeholder="e.g. 72.5" 
+                                       value="{{ inputs.life if inputs else '' }}" required min="20" max="85">
+                            </div>
+                        </div>
+
+                        <!-- Input 2: Expected Years of Schooling -->
+                        <div class="input-container">
+                            <div class="input-label-row">
+                                <label for="expected" class="input-label">Expected Years of Schooling</label>
+                                <span class="input-range-info">(range: 0 – 20 years)</span>
+                            </div>
+                            <div class="input-wrapper">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path>
+                                    </svg>
+                                </span>
+                                <input type="number" id="expected" name="expected" step="any" placeholder="e.g. 12.8" 
+                                       value="{{ inputs.expected if inputs else '' }}" required min="0" max="20">
+                            </div>
+                        </div>
+
+                        <!-- Input 3: Mean Years of Schooling -->
+                        <div class="input-container">
+                            <div class="input-label-row">
+                                <label for="mean" class="input-label">Mean Years of Schooling</label>
+                                <span class="input-range-info">(range: 0 – 15 years)</span>
+                            </div>
+                            <div class="input-wrapper">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </span>
+                                <input type="number" id="mean" name="mean" step="any" placeholder="e.g. 8.4" 
+                                       value="{{ inputs.mean if inputs else '' }}" required min="0" max="15">
+                            </div>
+                        </div>
+
+                        <!-- Input 4: GNI per Capita -->
+                        <div class="input-container">
+                            <div class="input-label-row">
+                                <label for="gni" class="input-label">GNI per Capita (PPP $)</label>
+                                <span class="input-range-info">(range: 100 – 75,000+)</span>
+                            </div>
+                            <div class="input-wrapper">
+                                <span class="input-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
+                                        <line x1="12" y1="18" x2="12" y2="12"></line>
+                                        <line x1="12" y1="12" x2="16" y2="12"></line>
+                                    </svg>
+                                </span>
+                                <input type="number" id="gni" name="gni" step="any" placeholder="e.g. 15400" 
+                                       value="{{ inputs.gni if inputs else '' }}" required min="100">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <!-- Predict Button Icon -->
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                        Calculate HDI
+                    </button>
+                </form>
+
+                <!-- Results Output Card -->
+                {% if prediction is defined and prediction is not none %}
+                    {% set tier_cls = 'tier-very-high' if category == 'Very High' 
+                                      else 'tier-high' if category == 'High' 
+                                      else 'tier-medium' if category == 'Medium' 
+                                      else 'tier-low' %}
+                    <div class="results-card {{ tier_cls }}">
+                        <div class="results-header">
+                            <span class="results-label">Predicted Index Class</span>
+                            <span class="category-badge">
+                                <!-- Dot Bullet Indicator -->
+                                <svg viewBox="0 0 24 24" width="8" height="8" fill="currentColor">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                {{ category }} Development
+                            </span>
+                        </div>
+                        
+                        <div class="prediction-value-row">
+                            <span class="prediction-val">{{ "%.4f"|format(prediction) }}</span>
+                            <span class="prediction-val-max">/ 1.0000</span>
+                        </div>
+
+                        <!-- Visual Gauge Slider -->
+                        <div class="gauge-container">
+                            <div class="gauge-track">
+                                <div class="gauge-fill" style="width: {{ prediction * 100 }}%;"></div>
+                                <div class="gauge-marker" style="left: {{ prediction * 100 }}%;"></div>
+                            </div>
+                            <div class="gauge-labels">
+                                <span>0.0000 (Low)</span>
+                                <span>1.0000 (Very High)</span>
+                            </div>
+                        </div>
+
+                        <!-- Action row to reset/clear form -->
+                        <div class="action-row">
+                            <a href="/" class="reset-btn">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                                </svg>
+                                Reset Prediction
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
