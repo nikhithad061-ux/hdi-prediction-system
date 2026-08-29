@@ -58,7 +58,7 @@ git clone
 https://github.com/nikhithad061-ux/hdi-prediction-system.git
 
 ### 2. Navigate to Source Code Folder
-cd "7. Project Documentation/source-code"
+cd "7.Project Decumentation/hdi_web_app"
 
 ### 3. Install Dependencies
 pip install -r requirements.txt
