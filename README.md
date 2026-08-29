@@ -39,8 +39,7 @@ A Machine Learning-based web application that:
 ---
 
 ## 🚀 Live Demo
-https://hdi-prediction-system-2-n3sq.onrender.com
-
+https://hdi-web-app.onrender.com
 ---
 
 ## 🎥 Demo Video
