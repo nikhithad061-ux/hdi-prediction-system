@@ -1,9 +1,0 @@
-Loading model...
-C:\Users\nikhi\AppData\Local\Programs\Python\Python314\Lib\site-packages\sklearn\base.py:525: InconsistentVersionWarning: Trying to unpickle estimator LinearRegression from version 1.6.1 when using version 1.9.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
-https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
-  warnings.warn(
-Model loaded successfully!
-Features: [array([7.25e+01, 1.28e+01, 8.40e+00, 1.54e+04])]
-C:\Users\nikhi\AppData\Local\Programs\Python\Python314\Lib\site-packages\sklearn\utils\validation.py:2827: UserWarning: X does not have valid feature names, but LinearRegression was fitted with feature names
-  warnings.warn(
-Prediction: 0.7247299804689863
