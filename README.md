@@ -42,13 +42,6 @@ A Machine Learning-based web application that:
 https://hdi-web-app.onrender.com
 ---
 
-## 🎥 Demo Video
-Click here to watch the demo:
-
-https://drive.google.com/file/d/1qEtkRctW7DCYiVszr0xzZBZ5eo3iS_ep/view?usp=sharing
-
----
-
 ## ⚙️ Installation & Setup
 
 ### 1. Clone the Repository
