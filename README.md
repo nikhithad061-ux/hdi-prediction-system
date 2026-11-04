@@ -40,6 +40,7 @@ A Machine Learning-based web application that:
 
 ## 🚀 Live Demo
 https://hdi-web-app.onrender.com
+
 ---
 
 ## ⚙️ Installation & Setup
